@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Calculator} from "./components/calculator/calculator";
+import {CalculationsHistory} from "./components/calculations-history/calculations-history";
+import './App.scss';
 
 function App() {
+  const [resultHistory, setResultHistory] = React.useState([]);
+
+  const onReceivedResult = (result) => setResultHistory([...resultHistory, result]);
+  const clearHistory = () => setResultHistory([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>AMBITIONED CALCULATOR</h1>
+        <div className="main-wrapper">
+            <Calculator onResult={onReceivedResult} />
+            <CalculationsHistory results={resultHistory} clearHistory={clearHistory} />
+        </div>
     </div>
   );
 }

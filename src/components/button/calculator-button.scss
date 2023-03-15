@@ -1,0 +1,38 @@
+.button {
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 80px;
+}
+
+.background-operation-button {
+    background-color: #262626;
+    &:hover {
+        background-color: #181818;
+    }
+}
+
+.background-button {
+    background-color: #545454;
+    &:hover {
+        background-color: #262626;
+    }
+}
+
+.background-button-result {
+    background-color: #56ff27;
+    &:hover {
+        background-color: #208a00;
+    }
+}
+
+.background-button-delete {
+    background-color: #c70000;
+    &:hover {
+        background-color: #670000;
+    }
+}

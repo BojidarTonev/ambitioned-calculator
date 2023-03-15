@@ -1,0 +1,36 @@
+.calculations-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    > h2 {
+        margin: 0 0 50px 0;
+        color: #b9dcff;
+    }
+
+    .history-container {
+        overflow: auto;
+        height: 400px;
+        width: 100%;
+    }
+
+    .action-button {
+        position: absolute;
+        bottom: 0;
+        font-size: 35px;
+        background-color: #00658a;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #00384b;
+        cursor: pointer;
+
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.01);
+            background-color: white;
+            color: #00658a;
+        }
+    }
+}
