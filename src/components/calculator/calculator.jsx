@@ -14,11 +14,19 @@ const buttonValues = [
 
 export const Calculator = ({onResult}) => {
     const [inputValue, setInputValue] = React.useState('0');
+    const [error, setError] = React.useState('');
 
     const onButtonClicked = (e) => {
         const value = e.currentTarget.textContent;
         if(value === '=') {
-            const result = eval(inputValue);
+            setError('');
+            let result;
+            try {
+                result = eval(inputValue);
+            } catch (err) {
+                return setError('Invalid equation!');
+            }
+
             onResult(`${inputValue}=${result}`);
             setInputValue('0');
 
@@ -28,6 +36,7 @@ export const Calculator = ({onResult}) => {
     }
 
     return(<div>
+        {error}
         <ResultDisplay inputValue={inputValue} />
         <CalculatorButtons buttonValues={buttonValues} onButtonClick={onButtonClicked} />
     </div>)
